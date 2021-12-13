@@ -4,6 +4,6 @@ import (
 	"fmt"
 )
 
-func goTestFunction() {
+func GoTestFunction() {
 	fmt.Println("Hello from go package!!")	
 }
