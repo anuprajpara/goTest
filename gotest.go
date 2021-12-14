@@ -10,11 +10,12 @@ import (
 	"net/url"
 )
 
+
 func GoTestFunction() {
 	fmt.Println("Hello from go package!!")	
 }
 
-func FromAPI(myURL string) (Payload, error) {
+func FromAPI(myURL string) (string, error) {
 	u, err := url.Parse(myURL)
 	if err != nil {
 		log.Fatal(err)
@@ -49,10 +50,10 @@ func FromAPI(myURL string) (Payload, error) {
 	}
 	if resp.StatusCode != http.StatusOK {
 		err = errors.New("Got status code :" + resp.Status)
-		return Payload{}, err
+		return string{}, err
 	}
 
-	var payload Payload
+	var payload string
 	err = json.Unmarshal([]byte(body), &payload)
 	if err != nil {
 		fmt.Println("json.Unmarshal", err)
