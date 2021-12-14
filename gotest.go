@@ -50,7 +50,7 @@ func FromAPI(myURL string) (string, error) {
 	}
 	if resp.StatusCode != http.StatusOK {
 		err = errors.New("Got status code :" + resp.Status)
-		return string{}, err
+		return "", err
 	}
 
 	var payload string
